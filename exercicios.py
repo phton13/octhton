@@ -1,62 +1,80 @@
 def Ex1():
-    n = 1
-    while n > 0:
-        n = int(input("Informe um numero para saber o quadrado: "))
-        if n > 0:
-            print(n ** 2)
-        elif n == 0:
-            print("Fim do programa!")
-        else:
-            print("Numero invalido, fim do programa")
+    while True:
+        try:
+            n = int(input("Informe um numero para saber o quadrado: "))
+            if n > 0:
+                print(n ** 2)
+            elif n == 0:
+                print("Fim do programa!")
+            else:
+                print("Numero invalido, fim do programa")
+                break
+        except ValueError:
+            print("Entrada inválida, por favor insira um número inteiro válido!")
 #------------------------------------------------------------------------------#
 def Ex2():
-    n = int(input("Informe o termo 'n':"))
-    while n <= 0:
-        n = int(input("Informe o termo 'n':"))
-    cont = 1
-    soma = 0
-    while cont <= n:
-        soma = soma + cont
-        cont += 1
-    print(soma)
+    while True:
+        try:
+            n = int(input("Informe o termo 'n':"))
+            if n <= 0:
+                raise ValueError
+            cont = 1
+            soma = 0
+            while cont <= n:
+                soma = soma + cont
+                cont += 1
+            print(soma)
+            break
+        except ValueError:
+            print("Entrada inválida, por favor insira um número inteiro positivo!")
 #------------------------------------------------------------------------------#
 def Ex3():
-    n = int(input("Informe o termo 'n':"))
-    while n <= 0:
-        n = int(input("Informe o termo 'n':"))
-    cont = 0
-    impar = 1
-    while cont < n:
-        if impar % 2 == 0:
-            impar += 1
-        else:
-            print(impar)
-            impar += 1
-            cont += 1
+    while True:
+        try:
+            n = int(input("Informe o termo 'n':"))
+            if n <= 0:
+                raise ValueError
+            cont = 0
+            impar = 1
+            while cont < n:
+                if impar % 2 != 0:
+                    print(impar)
+                    cont += 1
+                impar += 1
+                break
+        except ValueError:
+            print("Entrada inválida, por favor insira um número inteiro positivo!")
 #------------------------------------------------------------------------------#
 def Ex4():
-    x = int(input("Informe o termo 'x':"))
-    n = int(input("Informe o termo 'n':"))
-    while n <= 0:
-        n = int(input("Informe o termo 'n':"))
-    print(x ** n)
+    while True:
+        try:
+            x = int(input("Informe o termo 'x':"))
+            n = int(input("Informe o termo 'n':"))
+            if n <= 0:
+                raise ValueError
+            print(x ** n)
+            break
+        except ValueError:
+            print("Entrada inválida, informe um número inteiro positivo.")
 #------------------------------------------------------------------------------#
 def Ex5():
-    dias = 31
-    vendas = 0
-    cont = 1
-    maior = 0
-    totalVendas = 0
-    while cont <= dias:
-        vendas = int(input("\nInforme a venda: "))
-        totalVendas += vendas
-        if vendas > maior:
-            maior = cont
-        cont += 1
-    print("\nDia da maior venda:")
-    print(maior)
-    print("\nTotal vendido:")
-    print(totalVendas)
+    while True:
+        dias = 31
+        vendas = 0
+        cont = 1
+        maior = 0
+        totalVendas = 0
+        while cont <= dias:
+            try:
+                vendas = int(input("\nInforme o a quantidade de vendas diaria: "))
+                totalVendas += vendas
+                if vendas > maior:
+                    maior = cont
+                cont += 1
+            except ValueError:
+                print("Entrada inválida, por favor insira um número inteiro positivo!")
+        print(f"\nDia da maior venda: {maior}")
+        print(f"\nTotal vendido: {totalVendas}")
 #------------------------------------------------------------------------------#
 def Ex6():
     n = int(input("Numero de alunos:"))
